@@ -1,25 +1,24 @@
 <template>
     <HeaderComp></HeaderComp>
+    <logSingIn/>
 </template>
 
 <script>
 import HeaderComp from './components/HeaderComp.vue'
+import logSingIn from './components/loginComps.vue'
 export default {
-
 
   name: 'App',
   components: {
-    HeaderComp
+    HeaderComp,
+    logSingIn: logSingIn
   }
 }
 </script>
 
 <style>
 
-* {
-  outline: 1px solid rgba(132, 255, 142, 0.6);
-  box-sizing: border-box;
-}
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -27,6 +26,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  
 }
+body {
+ background-image: url("./assets/fundoBarbearia.png") ;
+}
+main{
+ text-align:center;
+}
+
 </style>

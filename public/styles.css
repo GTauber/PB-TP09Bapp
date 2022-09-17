@@ -1,0 +1,12 @@
+@import "root.css";
+  h1{
+    font-family: "Roboto";
+    border-bottom: 2px solid blue;
+  }
+
+  header {
+    margin:50px 0;
+    height: 200px; /* temporário */
+    width: 100%;  /* temporário */
+    background-image:  url("src\assets\madeira.png");
+  }
