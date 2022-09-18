@@ -1,79 +1,73 @@
 <template>
      
-    
     <main>
-        
+
+      
+
         <section id="signIn">
-        
-       <div class="cliente">
-        <h3>SING IN</h3><br>
-         <div class="input-group flex-nowrap">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-           </div>
-           <input type="text" class="form-control" placeholder="Nome do cliente" aria-label="Nome do Usuário" v-model="input_nome"
-             aria-describedby="addon-wrapping" id="nome-cliente" required />
-         </div>
-       </div>
-    
-       <div class="cliente">
-         <div class="input-group flex-nowrap">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="addon-wrapping"><i class="fa-sharp fa-solid fa-at"></i></span>
-           </div>
-           <input type="email" class="form-control" placeholder="Email" aria-label="Email" v-model="input_email"
-             aria-describedby="addon-wrapping" id="email-cliente"  required />
-         </div>
-       </div>
-    
-       <div class="cliente">
-         <div class="input-group flex-nowrap">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="addon-wrapping">
-               <i class="fa-solid fa-phone"></i></span>
-           </div>
-           <input type="text" class="form-control" placeholder="Celular " aria-label="Telefone celular" v-model="input_telefone"
-             aria-describedby="addon-wrapping" id="telefone-cliente"  required />
-         </div>
-       </div>
+           
+            <h3>Nova Conta</h3><br>
+       
 
-       <div class="cliente">
-         <div class="input-group flex-nowrap">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="addon-wrapping">
-              <i class="fa-solid fa-key"></i>
-              </span>
-           </div>
-           <input type="password" class="form-control" placeholder="Digite a senha desejada" aria-label="Senha" v-model="input_password"
-             aria-describedby="addon-wrapping" id="senha"  required />
-         </div>
-       </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Digite seu nome completo" aria-label="Nome do Usuário" aria-describedby="basic-addon1"  v-model="input_nome">
+            </div>
+            
+            <div class="alert" v-if="!isValid.nome">
+              <p>Nome inválido! {{mensagem.nome}}</p>
+            </div>
 
-       <div class="cliente">
-         <div class="input-group flex-nowrap">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="addon-wrapping">
-              <i class="fa-solid fa-key"></i>
-              </span>
-           </div>
-           <input type="password" class="form-control" placeholder="Digite a senha desejada novamente" aria-label="Senha de novo" v-model="input_passwordAgain"
-             aria-describedby="addon-wrapping" id="senha2"  required />
-         </div>
-       </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-sharp fa-solid fa-at"></i></span>
+                <input type="text" class="form-control" placeholder="Digite seu email" aria-label="Email" aria-describedby="basic-addon1"  v-model="input_email">
+            </div>
+
+            <div class="alert" v-if="!isValid.email" >
+              <p>Email inválido! {{mensagem.email}}</p>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+                <input type="text" class="form-control" placeholder="Digite o nº do celular" aria-label="Celular" aria-describedby="basic-addon1"  v-model="input_telefone">
+            </div>
+
+            <div class="alert" v-if="!isValid.telefone" >
+              <p>Número de telefone inválido! {{mensagem.telefone}}</p>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Digite sua senha" aria-label="Senha" aria-describedby="basic-addon1"  v-model="input_password">
+            </div>
+
+            <div class="alert" v-if="!isValid.password" >
+              <p>Senha inválida! {{mensagem.password}}</p>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Confirme a sua senha" aria-label="Senha" aria-describedby="basic-addon1"  v-model="input_passwordAgain">
+            </div>
+
+            <div class="alert" v-if="!isValid.passwordAgain" >
+              <p>Senha inválida! {{mensagem.passwordAgain}}</p>
+            </div>
 
      </section>
     
      <div class="botoes-form">
-      <button type="button" class="btn btn-outline-warning" id="enviar" @click="cadastrar">Cadastrar</button>
-      <button type="button" class="btn btn-outline-warning" id="limpar" @click="limpar">Limpar</button>
+        <button type="button" class="btn btn-outline-warning" id="enviar" @click="cadastrarDados">Cadastrar</button>
+        <button type="button" class="btn btn-outline-warning" id="limpar" @click="limparDados">Limpar</button>
      </div>
-       
-     
+
+
     </main>
-    </template>
+
+</template>
     
-    <script>
-      import selfFunctions from '../functions.js';
+    <script>  
+          import selfFunctions from '../functions.js';
         export default {
           data(){
             return{
@@ -94,21 +88,39 @@
                 password:"",
                 nome:"",
                 telefone:"",
-                passwordAgain:""}
+                passwordAgain:"",
+              
+              }
             }
           },
           methods: {
-            validarDados(){
-              this.isValid.email = selfFunctions.voidValidation(this.input_email);
+            cadastrarDados(){
+              this.isValid.nome=selfFunctions.toNameValidation(this.input_nome);
+              this.mensagem.nome = selfFunctions.msg;
+
+              this.isValid.email=selfFunctions.toEmailValidation(this.input_email);
               this.mensagem.email = selfFunctions.msg;
-              this.isValid.password = selfFunctions.voidValidation(this.input_password);
+
+              this.isValid.telefone=selfFunctions.toTelValidation(this.input_telefone);
+              this.mensagem.telefone = selfFunctions.msg;
+
+              this.isValid.password=selfFunctions.toPassValidation(this.input_password);
               this.mensagem.password = selfFunctions.msg;
+
+              this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.passwordAgain);
+              this.mensagem.passwordAgain = selfFunctions.msg;
             },
             limparDados(){
               this.isValid.email = true;
               this.isValid.password = true;
+              this.isValid.passwordAgain = true;
+              this.isValid.nome=true;
+              this.isValid.telefone=true;
               this.input_email = "";
               this.input_password = "";
+              this.input_nome="";
+              this.input_telefone="";
+              this.input_passwordAgain="";
             }
           },
         
@@ -129,9 +141,7 @@
       button:active {
         transform:scale(0.9);
       }
-      .cliente {
-        margin:5px 0;
-      }
+      
       #signIn {
         border: 5px solid var(--cor-terc);
         padding: 20px;
@@ -149,11 +159,12 @@
         font-weight: bold;
         font-size:16px;
         margin-top:-15px;
-        
       }
+      
       .alert{
-        text-align:right;
-        height:25px;
-      }
+            text-align:right;
+            height:25px;
+          }
+      
      
     </style>

@@ -2,50 +2,40 @@
 
    
     <main>
+      
+            <section id="login" class="container">
         
-        
-              <section id="login">
-        
-           <div class="cliente">
-             <h3>LOG IN</h3><br>
-             <div class="input-group flex-nowrap">
-               <div class="input-group-prepend">
-                 <span class="input-group-text" id="addon-wrapping"><i class="fa-sharp fa-solid fa-at"></i></span>
-               </div>
-               <input type="email" class="form-control" placeholder="Email ou nº de celular + DDD" aria-label="Email"
-                 aria-describedby="addon-wrapping" id="email-cliente"  v-model="input_email" />
-                 
-             </div>
-             <div class="alert" v-if="!isValid.email" >
-             <p >Email ou número de celular inválido! {{mensagem.email}}</p>
+          
+             <h3>Acessar conta</h3><br>
+
+            
+             <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Email ou nº de celular + DDD" aria-label="Email" aria-describedby="basic-addon1" v-model="input_email">
             </div>
-           </div>
-        
-    
-           <div class="cliente">
-             <div class="input-group flex-nowrap">
-               <div class="input-group-prepend">
-                 <span class="input-group-text" id="addon-wrapping">
-                  <i class="fa-solid fa-key"></i>
-                  </span>
-               </div>
-               <input type="password" class="form-control" placeholder="Senha" aria-label="Senha"
-                 aria-describedby="addon-wrapping" id="senha"  v-model="input_password" />
-                 
-             </div>
+
+            <div class="alert" v-if="!isValid.email" >
+              <p>Email ou número de celular inválido! {{mensagem.email}}</p>
+            </div>
+       
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                <input type="text" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1" v-model="input_password">
+            </div>
+
               <div class="alert" v-if="!isValid.password">
                 <p>Senha inválida! {{mensagem.password}} </p>
               </div>
-            </div>
+            
             
          </section>
         
-         <div class="botoes-form">
+         <div>
           <button type="button" class="btn btn-outline-warning" id="enviar" @click="validarDados">Enviar</button>
           <button type="button" class="btn btn-outline-warning" id="limpar" @click="limparDados">Limpar</button>
          </div>
          
-        
+    
         </main>
       
         
@@ -86,20 +76,15 @@
         </script>
         
         <style scoped>
-          .botoes-form {
-            margin-top: 45px;
-            text-align:center;
-          }
+    
           button {
             margin-left:15px;
             margin-bottom:20px;
             font-weight: bold;
+           
           }
           button:active {
             transform:scale(0.9);
-          }
-          .cliente {
-            margin:5px 0;
           }
           #login {
             border: 5px solid var(--cor-terc);
@@ -109,6 +94,7 @@
             border-bottom-left-radius: 20px;
             border-right:1px solid var(--cor-terc);
             border-bottom:1px solid var(--cor-terc);
+            margin-bottom:25px;
           }
           h3{
             color: var(--cor-terc);

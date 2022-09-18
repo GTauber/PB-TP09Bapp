@@ -1,17 +1,20 @@
 <template>
     <HeaderComp></HeaderComp>
     <logSingIn/>
+    <mapa/>
 </template>
 
 <script>
 import HeaderComp from './components/HeaderComp.vue'
 import logSingIn from './components/loginComps.vue'
+import mapa from './components/mapaSite.vue'
 export default {
 
   name: 'App',
   components: {
     HeaderComp,
-    logSingIn: logSingIn
+    logSingIn,
+    mapa
   }
 }
 </script>
