@@ -54,10 +54,6 @@
     </script>
     
     <style scoped>
-    main{
-        position:relative; /* temporário */
-        top:100px; /* temporário */
-    }
     #btnNovoCadastro, #btnLogarConta{
         background:var(--cor-sec);
         color:white;

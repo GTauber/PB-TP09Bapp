@@ -93,7 +93,9 @@ const myFunctions = {
     toPassAgainValid(data1,data2){
       if (data1!=data2){
         this.msg="Senhas não são correspondentes";
+        return false;
       }
+      return true;
     }
 }
 

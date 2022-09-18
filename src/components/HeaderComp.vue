@@ -22,14 +22,14 @@
                             <a class="nav-link" href="#">Contatos</a>
                         </li>
                     </ul>
-                    <span class="navbar-text">
+                    <div class="navbar-text">
                         <div class="search-box">
                             <a href="#"><i class="fa-solid fa-magnifying-glass search"></i></a>
                         </div>
                         <div class="profile-box">
                             <a href="#"><i class="fa-solid fa-user user-profile"></i></a>
                         </div>
-                    </span>
+                    </div>
                 </div>
             </div>
         </nav>

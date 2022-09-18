@@ -90,7 +90,9 @@
                 telefone:"",
                 passwordAgain:"",
               
-              }
+              },
+              // ADDED IN CODE REVIEW
+              users: [],
             }
           },
           methods: {
@@ -101,15 +103,52 @@
               this.isValid.email=selfFunctions.toEmailValidation(this.input_email);
               this.mensagem.email = selfFunctions.msg;
 
-              this.isValid.telefone=selfFunctions.toTelValidation(this.input_telefone);
-              this.mensagem.telefone = selfFunctions.msg;
+              // this.isValid.telefone=selfFunctions.toTelValidation(this.input_telefone);
+              // this.mensagem.telefone = selfFunctions.msg;
 
               this.isValid.password=selfFunctions.toPassValidation(this.input_password);
               this.mensagem.password = selfFunctions.msg;
 
-              this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.passwordAgain);
-              this.mensagem.passwordAgain = selfFunctions.msg;
+              // this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.passwordAgain);
+              // this.mensagem.passwordAgain = selfFunctions.msg;
+
+              if (this.isValid.nome && this.isValid.email && this.isValid.telefone && this.isValid.password && this.isValid.passwordAgain){
+                this.saveUser();
+              }
+
             },
+
+            //Start code review
+            saveUser() {
+              const user = {
+                nome: this.input_nome,
+                email: this.input_email,
+                telefone: this.input_telefone,
+                password: this.input_password,
+                passwordAgain: this.input_passwordAgain
+              }
+              console.log(`User ${sessionStorage.getItem('users')}`);
+              if ( sessionStorage.getItem('users') == null ) {
+                this.users.push(user);
+                sessionStorage.setItem('users', JSON.stringify(this.users));
+                alert("Usuário cadastrado com sucesso!");
+                this.limparDados();
+              } else {
+                this.users = JSON.parse(sessionStorage.getItem('users'));
+                console.log(`Users in storage ${JSON.stringify(this.users)}`);
+                this.users.forEach((user) => {
+                  if (user.email === this.input_email) {
+                    alert("Usuário já cadastrado!");
+                  } else {
+                    this.users.push(user);
+                    sessionStorage.setItem('users', JSON.stringify(this.users));
+                    alert("Usuário cadastrado com sucesso!");
+                    this.limparDados();
+                  }
+                });
+              }
+            },
+            // End code review
             limparDados(){
               this.isValid.email = true;
               this.isValid.password = true;
