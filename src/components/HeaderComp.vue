@@ -13,14 +13,22 @@
                             <a class="nav-link" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <a class="nav-link" href="#">Serviços</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contatos</a>
                         </li>
                     </ul>
                     <span class="navbar-text">
-                        Navbar text with an inline element
+                        <div class="search-box">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass search"></i></a>
+                        </div>
+                        <div class="profile-box">
+                            <a href="#"><i class="fa-solid fa-user user-profile"></i></a>
+                        </div>
                     </span>
                 </div>
             </div>
@@ -37,33 +45,58 @@ export default {
 </script>
 
 <style scoped>
-* {
-    box-sizing: border-box;
+
+.navbar-brand {
+    border-radius: 100px;
+    font-weight: bold;
+    background-color: rgba(202, 202, 202, 0.414);
+    padding: 0.3rem 1rem;
+}
+    
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    margin-right: 20px;
+    border-radius: 15px;
+    width: 40px;
+}
+
+.profile-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid blue;
+    margin-right: 20px;
+    border-radius: 15px;
+    width: 25px;
+}
+
+
+.search {
+    color: white;
+}
+
+.navbar-text {
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 .nav-item a {
-    color: rgb(199, 0, 0);
+    margin: 0vw 1vw;
+    color: rgb(0, 0, 0);
+    border-radius: 100px;
+    background-color: rgba(202, 202, 202, 0.414);
 }
 
 .nav-item a:hover {
-    color: rgb(255, 255, 255);
+    color: rgb(138, 49, 11);
 }
 
-.text-pop-up-tr {
-	animation: text-pop-up-tr 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
 
-@keyframes text-pop-up-tr {
-  0% {
-    transform: translateY(0) translateX(0);
-    transform-origin: 50% 50%;
-    text-shadow: none;
-  }
-  100% {
-    transform: translateY(50px);
-    transform-origin: 50% 50%;
-    text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
-  }
-}
+
 
 </style>
