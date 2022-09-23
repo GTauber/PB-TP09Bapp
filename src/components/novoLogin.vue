@@ -76,6 +76,7 @@
               input_nome:"",
               input_telefone:"",
               input_passwordAgain:"",
+              id:0,
               isValid:{
                 email:true,
                 password:true,
@@ -89,7 +90,7 @@
                 nome:"",
                 telefone:"",
                 passwordAgain:"",
-              
+                
               },
               // ADDED IN CODE REVIEW
               users: [],
@@ -103,14 +104,14 @@
               this.isValid.email=selfFunctions.toEmailValidation(this.input_email);
               this.mensagem.email = selfFunctions.msg;
 
-              // this.isValid.telefone=selfFunctions.toTelValidation(this.input_telefone);
-              // this.mensagem.telefone = selfFunctions.msg;
+              this.isValid.telefone=selfFunctions.toTelValidation(this.input_telefone);
+              this.mensagem.telefone = selfFunctions.msg;
 
               this.isValid.password=selfFunctions.toPassValidation(this.input_password);
               this.mensagem.password = selfFunctions.msg;
 
-              // this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.passwordAgain);
-              // this.mensagem.passwordAgain = selfFunctions.msg;
+              this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.input_passwordAgain);
+              this.mensagem.passwordAgain = selfFunctions.msg;
 
               if (this.isValid.nome && this.isValid.email && this.isValid.telefone && this.isValid.password && this.isValid.passwordAgain){
                 this.saveUser();
@@ -120,33 +121,39 @@
 
             //Start code review
             saveUser() {
+              this.id ++
               const user = {
                 nome: this.input_nome,
                 email: this.input_email,
                 telefone: this.input_telefone,
                 password: this.input_password,
-                passwordAgain: this.input_passwordAgain
+                passwordAgain: this.input_passwordAgain,
+                clientID: this.id
               }
-              console.log(`User ${sessionStorage.getItem('users')}`);
-              if ( sessionStorage.getItem('users') == null ) {
-                this.users.push(user);
-                sessionStorage.setItem('users', JSON.stringify(this.users));
-                alert("Usuário cadastrado com sucesso!");
-                this.limparDados();
-              } else {
-                this.users = JSON.parse(sessionStorage.getItem('users'));
-                console.log(`Users in storage ${JSON.stringify(this.users)}`);
-                this.users.forEach((user) => {
-                  if (user.email === this.input_email) {
-                    alert("Usuário já cadastrado!");
-                  } else {
-                    this.users.push(user);
-                    sessionStorage.setItem('users', JSON.stringify(this.users));
-                    alert("Usuário cadastrado com sucesso!");
-                    this.limparDados();
-                  }
-                });
-              }
+              this.$store.commit('storageClient',user);
+              console.log(this.$store.state.clients); //retirar
+              this.limparDados();
+              
+              // console.log(`User ${sessionStorage.getItem('users')}`);
+              // if ( sessionStorage.getItem('users') == null ) {
+              //   this.users.push(user);
+              //   sessionStorage.setItem('users', JSON.stringify(this.users));
+              //   alert("Usuário cadastrado com sucesso!");
+              //   this.limparDados();
+              // } else {
+              //   this.users = JSON.parse(sessionStorage.getItem('users'));
+              //   console.log(`Users in storage ${JSON.stringify(this.users)}`);
+              //   this.users.forEach((user) => {
+              //     if (user.email === this.input_email) {
+              //       alert("Usuário já cadastrado!");
+              //     } else {
+              //       this.users.push(user);
+              //       sessionStorage.setItem('users', JSON.stringify(this.users));
+              //       alert("Usuário cadastrado com sucesso!");
+              //       this.limparDados();
+              //     }
+              //   });
+              // }
             },
             // End code review
             limparDados(){

@@ -15,7 +15,7 @@ const myFunctions = {
     },
 
     letterValidation(data){
-      this.regex = /^[a-záàâãéèêíïóôõöúçñ]+$/i;
+      this.regex = /^[a-záàâãéèêíïóôõöúçñ ]+$/i;
       this.msg = "Deve conter apenas letras";
       return this.regex.test(data);
     },
@@ -28,7 +28,7 @@ const myFunctions = {
       return true;
     },
     numberValidation(data){
-      this.regex=/\D/;
+      this.regex=/\d{11}/;
       if(!this.regex.test(data)){
         this.msg="Deve conter 11 dígitos (DDD+numero) apenas números e não ter espaços";
         return false;
@@ -72,12 +72,10 @@ const myFunctions = {
       if(!this.voidValidation(data)){
         return false;
       }
-      else if (!this.numberValidation(data)){
+      if (!this.numberValidation(data)){
         return false;
       }
-      else{
-        return true;
-      }
+      return true;
     },
     toPassValidation(data){
       if(!this.voidValidation(data)){
@@ -91,7 +89,7 @@ const myFunctions = {
       }
     },
     toPassAgainValid(data1,data2){
-      if (data1!=data2){
+      if (data1!==data2){
         this.msg="Senhas não são correspondentes";
         return false;
       }
