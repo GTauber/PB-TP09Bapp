@@ -113,7 +113,28 @@
               this.isValid.passwordAgain=selfFunctions.toPassAgainValid(this.input_password,this.input_passwordAgain);
               this.mensagem.passwordAgain = selfFunctions.msg;
 
-              if (this.isValid.nome && this.isValid.email && this.isValid.telefone && this.isValid.password && this.isValid.passwordAgain){
+              let emailExist = true
+              for(let i in this.$store.state.clients){
+                if (this.$store.state.clients[i].email === this.input_email){
+                  this.mensagem.email = "Este email já está cadastrado!";
+                  this.isValid.email = false;
+                  emailExist = false;
+                  break;
+                }
+              }
+
+              let nameExist = true
+              for(let i in this.$store.state.clients){
+                if (this.$store.state.clients[i].nome === this.input_nome){
+                  this.mensagem.nome = "Este nome já está cadastrado!";
+                  this.isValid.nome = false;
+                  nameExist = false;
+                  break;
+                }
+              }
+              
+
+              if (this.isValid.nome && this.isValid.email && this.isValid.telefone && this.isValid.password && this.isValid.passwordAgain && emailExist && nameExist){
                 this.saveUser();
               }
 
@@ -128,11 +149,11 @@
                 telefone: this.input_telefone,
                 password: this.input_password,
                 passwordAgain: this.input_passwordAgain,
-                clientID: this.id
+                clientId: this.id
               }
               this.$store.commit('storageClient',user);
-              console.log(this.$store.state.clients); //retirar
               this.limparDados();
+            
               
               // console.log(`User ${sessionStorage.getItem('users')}`);
               // if ( sessionStorage.getItem('users') == null ) {
