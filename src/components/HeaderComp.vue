@@ -24,12 +24,13 @@
                     </ul>
                     <div class="navbar-text">
                         <div class="search-box">
-                            <a href="#"><i class="fa-solid fa-magnifying-glass search"></i></a>
+                          <a href="#"><i class="fa-solid fa-magnifying-glass search"></i></a>
                         </div>
                         <div class="profile-box">
                             <a href="#"><i class="fa-solid fa-user user-profile"></i></a>
                            
                         </div>
+                      <h1 style="color: white">Seja bem vindo {{name}}</h1>
                        
                     </div>
                     
@@ -44,7 +45,20 @@
 
 <script>
 export default {
-    name: 'HeaderComp'
+    name: 'HeaderComp',
+    data() {
+      return {
+      }
+    },
+    computed: {
+      name() {
+        if (this.$store.state.clients[1]) {
+          return this.$store.state.clients[1].nome;
+        }
+        return this.$store.state.clients[0].nome;
+      }
+    }
+
 }
 
 </script>

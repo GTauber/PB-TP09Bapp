@@ -5,6 +5,8 @@
     <div class="d-flex justify-content-center mt-5">
       <PaymentsComp></PaymentsComp>
     </div>
+    <AppHours/>
+    <AppQueue/>
 </template>
 
 <script>
@@ -12,6 +14,8 @@ import HeaderComp from './components/HeaderComp.vue'
 import PaymentsComp from './components/PaymentsComp.vue'
 import logSingIn from './components/loginComps.vue'
 import mapa from './components/mapaSite.vue'
+import AppHours from "@/components/AppHours";
+import AppQueue from "@/components/AppQueue";
 export default {
 
   name: 'App',
@@ -20,6 +24,8 @@ export default {
     logSingIn,
     mapa,
     PaymentsComp,
+    AppHours,
+    AppQueue,
   }
 }
 </script>
