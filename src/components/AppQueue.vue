@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <button @click="empurra">click</button>
-        <h1>{{ lista.length }}</h1>
+    <div class="d-flex flex-column">
+        <button @click="empurra" class="btn btn-primary">Enter in Queue</button>
+        <h1>Your position at the Queue is: <br>{{ lista.length }}</h1>
     </div>
 </template>
 
@@ -16,7 +16,7 @@
     created() {
         setInterval(() => {
             this.lista.pop()
-        }, 1000);
+        }, 2500);
     },  
     methods: {
         empurra() {
@@ -28,5 +28,7 @@
 </script>
 
 <style scoped>
-
+h1 {
+  color: white;
+}
 </style>
