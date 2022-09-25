@@ -28,10 +28,15 @@
                         </div>
                         <div class="profile-box">
                             <a href="#"><i class="fa-solid fa-user user-profile"></i></a>
+                           
                         </div>
+                       
                     </div>
+                    
                 </div>
+               
             </div>
+            
         </nav>
     </header>
     
@@ -96,7 +101,9 @@ export default {
     color: rgb(138, 49, 11);
 }
 
-
-
+#users{
+    color:white;
+}
+p{color:white;}
 
 </style>

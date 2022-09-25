@@ -11,7 +11,7 @@
             
              <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                <input type="text" class="form-control" placeholder="Email ou nº de celular + DDD" aria-label="Email" aria-describedby="basic-addon1" v-model="input_email">
+                <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" v-model="input_email">
             </div>
 
             <div class="alert" v-if="!isValid.email" >
@@ -20,7 +20,7 @@
        
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
-                <input type="text" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1" v-model="input_password">
+                <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1" v-model="input_password">
             </div>
 
               <div class="alert" v-if="!isValid.password">
@@ -63,6 +63,13 @@
                   this.mensagem.email = selfFunctions.msg;
                   this.isValid.password = selfFunctions.voidValidation(this.input_password);
                   this.mensagem.password = selfFunctions.msg;
+                  const inserts = {
+                    email : this.input_email,
+                    password: this.input_password
+                  }
+                  if (this.isValid.password && this.isValid.email){
+                    this.$store.dispatch('checkLogin',inserts);
+                  }
                 },
                 limparDados(){
                   this.isValid.email = true;
