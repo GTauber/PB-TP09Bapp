@@ -16,10 +16,10 @@
                           <router-link to="/" class="nav-link">Serviços</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link" >Sobre</router-link>
+                            <router-link to="/about" class="nav-link" >Sobre</router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/" class="nav-link">Contatos</router-link>
+                            <router-link to="/contact" class="nav-link">Contatos</router-link>
                         </li>
                     </ul>
                     <div class="navbar-text">
