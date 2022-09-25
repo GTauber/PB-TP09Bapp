@@ -2,7 +2,7 @@
     <header>
         <nav class="navbar navbar-expand-lg fixedtop text-pop-up-tr">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Barbe & Ria</a>
+              <router-link to="/" class="navbar-brand">Barbe & Ria</router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -10,24 +10,24 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item te">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                          <router-link to="/" class="nav-link">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Serviços</a>
+                          <router-link to="/" class="nav-link">Serviços</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre</a>
+                            <router-link to="/" class="nav-link" >Sobre</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contatos</a>
+                            <router-link to="/" class="nav-link">Contatos</router-link>
                         </li>
                     </ul>
                     <div class="navbar-text">
                         <div class="search-box">
-                          <a href="#"><i class="fa-solid fa-magnifying-glass search"></i></a>
+                          <router-link to="/"><i class="fa-solid fa-magnifying-glass search"></i></router-link>
                         </div>
                         <div class="profile-box">
-                            <a href="#"><i class="fa-solid fa-user user-profile"></i></a>
+                            <router-link to="/"><i class="fa-solid fa-user user-profile"></i></router-link>
                            
                         </div>
                       <h1 style="color: white">Seja bem vindo {{name}}</h1>

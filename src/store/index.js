@@ -5,6 +5,7 @@ export default createStore({
   state: {
     clients:[{}],
     valid:false,
+    loggedClient: {},
     idlog:0,
     nameLog:"",
    

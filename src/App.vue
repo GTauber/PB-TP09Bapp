@@ -1,31 +1,17 @@
 <template>
-    <HeaderComp></HeaderComp>
-    <logSingIn/>
-    <mapa/>
-    <div class="d-flex justify-content-center mt-5">
-      <PaymentsComp></PaymentsComp>
-    </div>
-    <AppHours/>
-    <AppQueue/>
+  <header-comp/>
+  <router-view/>
+  <mapaSite></mapaSite>
 </template>
 
 <script>
-import HeaderComp from './components/HeaderComp.vue'
-import PaymentsComp from './components/PaymentsComp.vue'
-import logSingIn from './components/loginComps.vue'
-import mapa from './components/mapaSite.vue'
-import AppHours from "@/components/AppHours";
-import AppQueue from "@/components/AppQueue";
-export default {
+import HeaderComp from "@/components/HeaderComp";
+import mapaSite from "@/components/mapaSite";
 
-  name: 'App',
+export default {
   components: {
     HeaderComp,
-    logSingIn,
-    mapa,
-    PaymentsComp,
-    AppHours,
-    AppQueue,
+    mapaSite
   }
 }
 </script>
@@ -41,7 +27,13 @@ export default {
 body {
  background-image: url("./assets/fundoBarbearia.png") ;
 }
-main{
- text-align:center;
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
