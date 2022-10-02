@@ -45,8 +45,7 @@
 <style scoped>
 
     footer{
-        position:relative;
-        bottom:-500px;
+        margin-top:500px;
         background:var(--cor-prim);
     }
     a{

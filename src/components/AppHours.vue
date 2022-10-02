@@ -1,9 +1,11 @@
 <template>
+      
   <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger" disabled>16:00</button>
-    <button type="button" class="btn btn-danger" disabled>16:30</button>
-    <button type="button" class="btn btn-success" :class="{'btn-danger': clicked, 'btn-success': !clicked}" :disabled="clicked" @click="agenda()" data-bs-toggle="modal" data-bs-target="#modalSuccess" aria-label="Close">17:00</button>
-    <button type="button" class="btn btn-danger" disabled>17:30</button>
+    <button type="button" class="btn btn-danger" v-for="(horario, index) in horarios"  
+    @click="marcarHora(index)" :key="index" >
+        {{horario}}
+      </button>
+ 
 
     <!-- Modal -->
     <div class="modal fade" id="modalSuccess" tabindex="-1" aria-labelledby="Success" aria-hidden="true">
@@ -28,7 +30,15 @@ export default {
   data() {
     return {
       fila: [],
-      clicked: false
+      clicked: false,
+      horarios: ["09:00",
+      "09:30","10:00","10:30",
+      "11:00","11:30","13:00",
+      "13:30","14:30","15:00",
+      "15:30","16:00","16:30",
+      "17:00","17:30","18:00",
+      "18:30","19:00","19:30",
+      "20:00"]
     }
   },
   methods: {
@@ -37,7 +47,29 @@ export default {
       this.fila.push(1);
       this.$store.commit('storageQueue', this.fila);
     },
-    
-  },
+    marcarHora(i){
+      let ask = confirm(`Deseja realmente marcar para ${this.horarios[i]}, sr(a). ${this.$store.state.nameLog} ?`);
+      if (ask){
+        alert(`Horário marcado para ${this.horarios[i]}`);
+        document.getElementsByTagName("button")[i+1].style.background = "green";
+        
+        for(let j = 1; j <= this.horarios.length; j++){
+          document.getElementsByTagName("button")[j].disabled=true;
+        }
+    }
+    else{
+      alert(`Horario cancelado!`);
+    }
+  
+  }
 }
+}
+
 </script>
+
+<style scoped>
+  button{
+    margin-right: 10px;
+    
+  }
+</style>
