@@ -35,13 +35,9 @@ export default {
     agenda() {
       this.clicked = true;
       this.fila.push(1);
-    }
+      this.$store.commit('storageQueue', this.fila);
+    },
+    
   },
 }
 </script>
-
-<style scoped>
-  .teste {
-    background-color: indianred;
-  }
-</style>
