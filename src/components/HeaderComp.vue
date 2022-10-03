@@ -32,6 +32,7 @@
                             </div>
                             <div class="col" :style="{'color':'red'}" v-else>
                                <h2> Fechado </h2>
+                               <p>Aberto de 8 as 22</p>
                             </div>
                         </div>
                     </div>
