@@ -5,6 +5,7 @@
     @click="marcarHora(index)" :key="index" >
         {{horario}}
       </button>
+      <button @click="cancelarHorarios">Cancelar</button>
  
 
     <!-- Modal -->
@@ -31,14 +32,21 @@ export default {
     return {
       fila: [],
       clicked: false,
-      horarios: ["09:00",
-      "09:30","10:00","10:30",
-      "11:00","11:30","13:00",
-      "13:30","14:30","15:00",
-      "15:30","16:00","16:30",
-      "17:00","17:30","18:00",
-      "18:30","19:00","19:30",
-      "20:00"]
+      horarios: ["08:00",
+                "09:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00"],
+                
     }
   },
   methods: {
@@ -52,24 +60,43 @@ export default {
       if (ask){
         alert(`Horário marcado para ${this.horarios[i]}`);
         document.getElementsByTagName("button")[i+1].style.background = "green";
-        
         for(let j = 1; j <= this.horarios.length; j++){
           document.getElementsByTagName("button")[j].disabled=true;
         }
+        let date = new Date();
+        let hour = date.getHours();
+        if(hour-this.horarios[i] === 1){
+          for(let j = 1; j <= this.horarios.length; j++){
+          document.getElementsByTagName("button")[j].disabled=false;
+          document.getElementsByTagName("button")[i+1].style.background = "red";
+        }
+      }
     }
     else{
       alert(`Horario cancelado!`);
     }
+  },
   
+  cancelarHorarios(){
+    for(let j = 1; j <= this.horarios.length; j++){
+          document.getElementsByTagName("button")[j].disabled=false;
+          document.getElementsByTagName("button")[j].style.background = "red";
+        }
   }
-}
+ }
 }
 
 </script>
 
 <style scoped>
   button{
-    margin-right: 10px;
-    
+    margin-right: 10px; 
+    border:none;
+  }
+  button:hover{
+    box-shadow: 1px 1px 20px rgb(255, 255, 255);
+  }
+  button:active{
+    transform:scale(0.9);
   }
 </style>

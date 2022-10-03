@@ -15,11 +15,11 @@
             <br><br>
 
             <div class="col">
-                 <h5><a href="#">Quem somos</a></h5>
+                 <h5><router-link to="/about">Quem somos</router-link></h5>
             </div>
 
             <div class="col">
-                <h5><a href="#">Agendamentos</a></h5>
+                <h5><router-link to="/services">Agendamentos</router-link></h5>
             </div>
 
             <div class="col">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col">
-                <h5><a href="#">Contatos</a></h5>
+                <h5><router-link to="/contacts">Contatos</router-link></h5>
             </div>
 
         </div>
