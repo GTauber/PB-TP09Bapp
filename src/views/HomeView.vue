@@ -13,7 +13,7 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner" id="carrossel">
             <div class="carousel-item active" data-bs-interval="10000">
               <router-link to="/queue">
                 <img src="@/assets/ServicoQueue.png" class="d-block w-100" alt="...">
@@ -76,5 +76,9 @@ export default {
 img {
   width: 510px;
   height: 420px;
+}
+#carrossel{
+  border-radius:20px;
+  box-shadow: 0px 0px 15px rgb(7, 7, 7);
 }
 </style>

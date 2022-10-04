@@ -21,8 +21,8 @@
                         <li class="nav-item">
                             <router-link to="/about" class="nav-link" >Sobre</router-link>
                         </li>
-                      <li class="nav-item">
-                        <router-link to="/queue" class="nav-link" >Fila</router-link>
+                        <li class="nav-item" disabled> 
+                        <router-link to="/queue" class="nav-link">Fila</router-link>
                       </li>
                       <li class="nav-item">
                         <router-link to="/credit" class="nav-link">Pagamentos</router-link>
@@ -31,17 +31,7 @@
                             <router-link to="/contact" class="nav-link">Contatos</router-link>
                         </li>
                     </ul>
-                    <div class="container" id="funcionamento">
-                        <div class="row"> 
-                            <div class="col" v-if="funcionamento">
-                            <h2 :style="{'color':'green'}">Aberto</h2>
-                            </div>
-                            <div class="col" :style="{'color':'red'}" v-else>
-                               <h2> Fechado </h2>
-                               <p>Aberto de 8 as 22</p>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="navbar-text">
                         <div class="search-box">
                           <router-link to="/"><i class="fa-solid fa-magnifying-glass search"></i></router-link>
@@ -59,7 +49,18 @@
             
         </nav>
     </header>
-    
+    <div class="container" id="funcionamento">
+                        <div class="row"> 
+                            <div class="col" v-if="funcionamento" :style="{'color':'green'} ">
+                            <h4>Aberto</h4>
+                            <p>Aberto de 8 às 22 horas</p>
+                            </div>
+                            <div class="col" :style="{'color':'red'}" v-else>
+                               <h4> Fechado </h4>
+                               <p>Aberto de 8 às 22 horas</p>
+                            </div>
+                        </div>
+                    </div>
 </template>
 
 <script>
@@ -145,10 +146,12 @@ export default {
 p{color:white;}
 
 #funcionamento{
-    width: 200px;
-    position: absolute;
+    width: 150px;
+    
     text-align: center;
-    margin-left:33%;
+    margin:0 auto;
+    opacity: 0.75;
+    text-shadow: 1px 1px 4px rgb(128, 126, 126);
 }
 
 .user-profile {

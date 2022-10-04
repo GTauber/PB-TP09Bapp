@@ -81,6 +81,8 @@ input {
 
 .card {
   border-radius: 30px;
+  background: var(--cor-terc);
+  opacity:0.75;
 }
 
 .card-title {
