@@ -2,8 +2,7 @@
 
     <header-comp/>
     <router-view/>
-    <div class="mtdd"></div>
-    <mapaSite class="mapaSite"></mapaSite>
+    <mapaSite></mapaSite>
 
 </template>
 

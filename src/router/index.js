@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue';
 import ContactsView from "@/views/ContactsView";
 import ServicesView from "@/views/ServicesView";
 import QueueView from "@/views/QueueView";
+import PaymentsView from "@/views/PaymentsView";
+import LoginComps from "@/components/loginComps";
+
 
 const routes = [
   {
@@ -32,6 +35,16 @@ const routes = [
     path: '/queue',
     name: 'queue',
     component: QueueView
+  },
+  {
+    path: '/credit',
+    name: 'credit',
+    component: PaymentsView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginComps
   }
 ]
 

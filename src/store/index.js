@@ -21,6 +21,10 @@ export default createStore({
       storageQueue(state,data){
         state.queue.push(data);
       },
+    addPayment(state,data) {
+        state.loggedClient.payment = data;
+        alert("Método de pagamento inserido com sucesso klebão");
+    }
   },
   actions: {
 

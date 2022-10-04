@@ -69,6 +69,7 @@
                   }
                   if (this.isValid.password && this.isValid.email){
                     this.$store.dispatch('checkLogin',inserts);
+                    this.$router.push('/');
                   }
                 },
                 limparDados(){

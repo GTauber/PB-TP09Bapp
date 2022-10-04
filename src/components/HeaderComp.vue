@@ -24,7 +24,10 @@
                       <li class="nav-item">
                         <router-link to="/queue" class="nav-link" >Fila</router-link>
                       </li>
-                        <li class="nav-item">
+                      <li class="nav-item">
+                        <router-link to="/credit" class="nav-link">Pagamentos</router-link>
+                      </li>
+                      <li class="nav-item">
                             <router-link to="/contact" class="nav-link">Contatos</router-link>
                         </li>
                     </ul>
@@ -44,8 +47,7 @@
                           <router-link to="/"><i class="fa-solid fa-magnifying-glass search"></i></router-link>
                         </div>
                         <div class="profile-box">
-                            <router-link to="/"><i class="fa-solid fa-user user-profile"></i></router-link>
-                           
+                            <router-link to="/login"><i class="fa-solid fa-user user-profile"></i></router-link>
                         </div>
                       <h1 style="color: white">Seja bem vindo {{$store.state.nameLog}}</h1>
                        
@@ -78,12 +80,7 @@ export default {
       funcionamento (){
         let date = new Date();
         let hour = date.getHours();
-        if (hour > 22 || hour < 8){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return !(hour > 22 || hour < 8);
       }
     }
 
@@ -152,6 +149,10 @@ p{color:white;}
     position: absolute;
     text-align: center;
     margin-left:33%;
+}
+
+.user-profile {
+  color: white;
 }
 
 </style>

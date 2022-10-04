@@ -6,7 +6,7 @@
     <h1 class="card-title">Quem somos</h1>
     <p class="card-text">Amamos pelos, somos apaixonados por homens barbudos.
        We love bears. Fazemos oque fazemos pois adoramos oque fazemos. Além do mais, sempre 
-        oferecemos uma cerveja e ótimas piadas, tudo pela satisfação do cliente, TUDO MESMO! 
+        oferecemos uma ótimas piadas, tudo pela satisfação do cliente, TUDO MESMO!
       Venha conhecer essa experiência única! </p>
   </div>
 </div>
