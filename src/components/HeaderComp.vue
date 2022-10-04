@@ -18,6 +18,9 @@
                         <li class="nav-item">
                             <router-link to="/about" class="nav-link" >Sobre</router-link>
                         </li>
+                      <li class="nav-item">
+                        <router-link to="/queue" class="nav-link" >Fila</router-link>
+                      </li>
                         <li class="nav-item">
                             <router-link to="/contact" class="nav-link">Contatos</router-link>
                         </li>
@@ -86,7 +89,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
     border: 1px solid blue;
     margin-right: 20px;
     border-radius: 15px;
@@ -105,7 +107,7 @@ export default {
 }
 
 .nav-item a {
-    margin: 0vw 1vw;
+    margin: 0 1vw;
     color: rgb(0, 0, 0);
     border-radius: 100px;
     background-color: rgba(202, 202, 202, 0.414);

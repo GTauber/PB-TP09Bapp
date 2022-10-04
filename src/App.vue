@@ -1,7 +1,10 @@
 <template>
-  <header-comp/>
-  <router-view/>
-  <mapaSite></mapaSite>
+
+    <header-comp/>
+    <router-view/>
+    <div class="mtdd"></div>
+    <mapaSite class="mapaSite"></mapaSite>
+
 </template>
 
 <script>
