@@ -8,6 +8,7 @@ export default createStore({
     loggedClient: {},
     idlog:0,
     nameLog:"",
+    queue: [],
    
   },
   getters: {
@@ -16,8 +17,10 @@ export default createStore({
     storageClient(state,data){
       state.clients.push(data);
         alert("Usuário inserido com sucesso");
-      }
-      
+      },
+      storageQueue(state,data){
+        state.queue.push(data);
+      },
   },
   actions: {
 
