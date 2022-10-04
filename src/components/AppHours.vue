@@ -1,7 +1,7 @@
 <template>
       
   <div class="btn-group d-flex" role="group" aria-label="Basic mixed styles example">
-    <button type="button" class="btn btn-danger" v-for="(horario, index) in horarios"  
+    <button type="button" class="btn btn-success" v-for="(horario, index) in horarios"  
     @click="marcarHora(index)" :key="index" >
         {{horario}}
       </button>
@@ -59,7 +59,7 @@ export default {
       let ask = confirm(`Deseja realmente marcar para ${this.horarios[i]}, sr(a). ${this.$store.state.nameLog} ?`);
       if (ask){
         alert(`Horário marcado para ${this.horarios[i]}`);
-        document.getElementsByTagName("button")[i+1].style.background = "green";
+        document.getElementsByTagName("button")[i+1].style.background = "red";
         for(let j = 1; j <= this.horarios.length; j++){
           document.getElementsByTagName("button")[j].disabled=true;
         }
@@ -68,7 +68,7 @@ export default {
         if(hour-this.horarios[i] === 1){
           for(let j = 1; j <= this.horarios.length; j++){
           document.getElementsByTagName("button")[j].disabled=false;
-          document.getElementsByTagName("button")[i+1].style.background = "red";
+          document.getElementsByTagName("button")[i+1].style.background = "green";
         }
       }
     }
@@ -80,7 +80,7 @@ export default {
   cancelarHorarios(){
     for(let j = 1; j <= this.horarios.length; j++){
           document.getElementsByTagName("button")[j].disabled=false;
-          document.getElementsByTagName("button")[j].style.background = "red";
+          document.getElementsByTagName("button")[j].style.background = "green";
         }
   }
  }

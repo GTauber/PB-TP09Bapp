@@ -1,15 +1,18 @@
 <template>
   <div class="container-xxl">
-    <div class="row">
-      <div class="col g-5">
-        <AppQueue></AppQueue>
-      </div>
-    </div>
+    
     <div class="row">
       <div class="col g-5">
         <AppHours></AppHours>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col g-5">
+        <AppQueue></AppQueue>
+      </div>
+    </div>
+
   </div>
 </template>
 
