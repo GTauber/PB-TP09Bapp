@@ -16,11 +16,11 @@
     created() {
         setInterval(() => {
             this.lista.pop()
-        }, 2500);
+        }, 5500);
     },  
     methods: {
         empurra() {
-            this.lista.push("");
+            this.lista.push(this.$store.state.nameLog);
         }
     }
 }
