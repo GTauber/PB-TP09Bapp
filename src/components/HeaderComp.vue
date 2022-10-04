@@ -22,7 +22,7 @@
                             <router-link to="/about" class="nav-link" >Sobre</router-link>
                         </li>
                         <li class="nav-item" disabled> 
-                        <router-link to="/queue" class="nav-link">Fila</router-link>
+                        <router-link to="/queue" class="nav-link fila">Fila</router-link>
                       </li>
                       <li class="nav-item">
                         <router-link to="/credit" class="nav-link">Pagamentos</router-link>
@@ -156,6 +156,10 @@ p{color:white;}
 
 .user-profile {
   color: white;
+}
+
+.fila {
+  pointer-events: none;
 }
 
 </style>
