@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col">
-        <h4>Schedule your hair cut:</h4>
+        <h4>A gende seu corte:</h4>
         <AppHours></AppHours>
       </div>
       <div class="row">
         <div class="col d-flex flex-column align-items-md-center">
-          <h4 class="mt-5">Or, enter in the Queue</h4>
+          <h4 class="mt-5">Ou, entre na fila</h4>
           <AppQueue></AppQueue>
         </div>
       </div>

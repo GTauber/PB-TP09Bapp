@@ -2,9 +2,9 @@
   <div class="card">
     <div class="card-body d-flex justify-content-around">
       <div class="py-3 d-flex flex-column w-75">
-        <h5 class="card-title">Credit Card</h5>
+        <h5 class="card-title">Cartão de crédito</h5>
         <form action="submit" class="d-flex flex-md-column align-items-center">
-          <label for="fName" class="lb">Name</label>
+          <label for="fName" class="lb">Nome</label>
           <input type="text" name="fname" id="fName" v-model="name">
           <label for="fCardNumber" class="lb">Número</label>
           <input type="number" name="fCardNumber" id="fCardNumber" v-model="cardNumber">

@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-column">
-        <button @click="empurra" class="btn btn-primary">Enter in Queue</button>
-        <h1>Your position at the Queue is: <br>{{ lista.length }}</h1>
+        <button @click="empurra" class="btn btn-primary">Entre na fila</button>
+        <h1>Sua posição na fila é: <br>{{ lista.length }}</h1>
     </div>
 </template>
 
